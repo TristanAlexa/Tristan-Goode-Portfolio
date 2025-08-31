@@ -73,7 +73,7 @@ function addMessage(sender: 'user' | 'ai', text: string) {
 
 function handleMailToAction(details: { name: string; email: string; message: string; }) {
     const { name, email, message } = details;
-    const myEmail = 'tristan.goode@example.com';
+    const myEmail = 'Tristan.alexagoode@gmail.com';
     const subject = '!TG - Portfolio Inquiry!';
     
     let body = `Message from: ${name}\n`;
