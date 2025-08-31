@@ -9,49 +9,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script type="module" src="index.tsx"></script>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0"
+  }
+}
+</script>
 </head>
 <body>
-    <header class="main-header">
-        <nav class="main-nav">
+    <header class="main-header" role="banner">
+        <nav class="main-nav" aria-label="Main Navigation">
             <a href="#home" class="nav-logo">Tristan Goode</a>
             <ul class="nav-links">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
                 <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    <a href="#projects" aria-label="Scroll to projects section" aria-describedby="tooltip-projects">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="currentColor" role="img" aria-hidden="true">
+                           <path d="M4,3c-1.105,0 -2,0.895 -2,2v3h11h15v-1c0,-1.105 -0.895,-2 -2,-2h-14.80078l-0.61719,-1.0293c-0.361,-0.602 -1.01184,-0.9707 -1.71484,-0.9707zM3,10c-0.552,0 -1,0.448 -1,1v12c0,1.105 0.895,2 2,2h22c1.105,0 2,-0.895 2,-2v-12c0,-0.552 -0.448,-1 -1,-1z"></path>
                         </svg>
+                        <span class="tooltip" id="tooltip-projects">Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my YouTube channel">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" aria-describedby="tooltip-github">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span class="tooltip" id="tooltip-github">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my YouTube channel" aria-describedby="tooltip-youtube">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
                             <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                         </svg>
+                        <span class="tooltip" id="tooltip-youtube">YouTube</span>
                     </a>
                 </li>
                  <li>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" aria-describedby="tooltip-linkedin">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
                             <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
                         </svg>
+                        <span class="tooltip" id="tooltip-linkedin">LinkedIn</span>
                     </a>
                 </li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li>
+                    <a href="#contact" aria-label="Scroll to contact section" aria-describedby="tooltip-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span class="tooltip" id="tooltip-contact">Contact</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main id="home">
         <!-- Hero Section -->
-        <section id="hero">
+        <section id="hero" aria-labelledby="hero-heading">
             <div class="hero-container">
-                <div class="hero-image">
+                <div class="hero-image" role="img" aria-label="A circular placeholder for Tristan Goode's profile picture.">
                     <!-- Placeholder for profile picture -->
                 </div>
                 <div class="hero-text">
-                    <h1>Hi, I'm Tristan Goode</h1>
+                    <h1 id="hero-heading">Hi, I'm Tristan Goode</h1>
                     <p>I build immersive digital experiences with the belief that technology can positively shape the way we live, play, and grow together.</p>
                     <a href="#projects" class="cta-button">View My Work</a>
                 </div>
@@ -59,66 +82,92 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="hidden-section">
+        <section id="projects" class="hidden-section" aria-labelledby="projects-heading">
             <div class="section-container">
-                <h2 class="section-heading">Projects</h2>
+                <h2 class="section-heading" id="projects-heading">Projects</h2>
                 <div class="project-grid">
                     <!-- Project Card 1 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
-                            <h3>VR Welding Experience - UP360</h3>
+                            <h3>VR Welding - UP360</h3>
                             <p>A virtual reality welding experience that lets users practice techniques, use industry tools, and learn safety measures in an immersive, hands-on environment.</p>
                         </div>
                     </div>
                     <!-- Project Card 2 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
                             <h3>Standard UI Components - UP360 </h3>
                             <p>An Unreal Engine 5 plug-in that provides standardized, customizable user interfaces, designed for easy implementation by both programmers and designers.</p>
                         </div>
                     </div>
                     <!-- Project Card 3 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
-                            <h3>Project Title Three</h3>
-                            <p>A brief description of the project, highlighting the technologies used and its purpose.</p>
+                            <h3>VR Power Engineering</h3>
+                            <p>A virtual simulation that introduces users to power engineering by operating generators, learning system functions, and practicing safety in an interactive environment.</p>
                         </div>
                     </div>
                      <!-- Project Card 4 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
-                            <h3>Project Title Four</h3>
-                            <p>A brief description of the project, highlighting the technologies used and its purpose.</p>
+                            <h3>Dialogue System - College Research Project</h3>
+                            <p>An easily customizable and implementable Unreal Engine 4 dialogue system demo that lets NPCs hold branching text conversations with players, featuring unique dialogue, reply choices, and dynamic responses.</p>
                         </div>
                     </div>
                     <!-- Project Card 5 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
-                            <h3>Project Title Five</h3>
-                            <p>A brief description of the project, highlighting the technologies used and its purpose.</p>
+                            <h3>Ninja Trainer - College Project</h3>
+                            <p>A 2D single-player side-scroller in Unity Engine demonstrating graphics rendering, physics, AI, memory management, and object-oriented programming.</p>
                         </div>
                     </div>
                     <!-- Project Card 6 -->
-                    <div class="project-card">
-                        <div class="project-image-placeholder"></div>
+                    <div class="project-card" role="article">
+                        <div class="project-image-placeholder" aria-hidden="true"></div>
                         <div class="project-card-content">
-                            <h3>Project Title Six</h3>
-                            <p>A brief description of the project, highlighting the technologies used and its purpose.</p>
+                            <h3>AR Trouble - College Project</h3>
+                            <p>A simplified augmented reality demo of the classic board game Trouble for iOS, developed using Unity Engine and Xcode.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="hidden-section">
+        <!-- Contact Section -->
+        <section id="contact" class="hidden-section" aria-labelledby="contact-heading">
              <div class="section-container">
-                <h2 class="section-heading">Get In Touch</h2>
-                <p>Contact Section Coming Soon</p>
+                <h2 class="section-heading" id="contact-heading">Get In Touch</h2>
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out via email or phone. I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision.</p>
+                        <div class="info-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="presentation" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:tristan.goode@example.com">Tristan.alexagoode@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="presentation" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <a href="tel:+1234567890">(647) 620-2843</a>
+                        </div>
+                    </div>
+                    <div class="chat-container" role="log" aria-live="polite">
+                        <div id="chat-messages" class="chat-messages">
+                            <!-- AI and user messages will be appended here -->
+                        </div>
+                        <div id="chat-loading" class="chat-loading" style="display: none;">
+                            <div class="spinner"></div>
+                        </div>
+                        <form id="chat-form" class="chat-input-form">
+                            <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Your message" required>
+                            <button type="submit" class="cta-button" aria-label="Send message">Send</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
